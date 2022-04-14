@@ -1,20 +1,18 @@
 <html>
-    <head>
-
-    </head>
-    <body>
-        <script src="https://unpkg.com/vue@3"></script>
-
-<div id="app">{{ message }}</div>
-
+<body>
+<script src="AndroidAsyncWork.js"></script>
+<div id="status">Status here</div>
 <script>
-  Vue.createApp({
-    data() {
-      return {
-        message: 'Hello Vue!'
-      }
-    }
-  }).mount('#app')
+  async function runAsyncWork(work, params) {
+    document.getElementById('status').innerText = "Loading"
+    let response = await AndroidAsyncWork.request(work, params)
+    console.log('response '+response)
+    document.getElementById('status').innerText = response
+  }
 </script>
-    </body>
+<button id="loginButton" onclick="runAsyncWork('login', {'key1':'value1'})">Login</button>
+<button id="purchaseButton">Purchase</button>
+<button id="logoutButton" onclick="runAsyncWork('logout', {'key1':'value1'})">Logout</button>
+<img src="https://miro.medium.com/max/882/1*9EBHIOzhE1XfMYoKz1JcsQ.gif" />
+</body>
 </html>
