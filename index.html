@@ -1,4 +1,10 @@
 <html>
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+    <script defer src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+</head>
 <body>
 <script src="AndroidAsyncWork.js"></script>
 <div id="status">Status here</div>
@@ -10,9 +16,17 @@
     document.getElementById('status').innerText = response
   }
 </script>
-<button id="loginButton" onclick="runAsyncWork('login', {'key1':'value1'})">Login</button>
-<button id="purchaseButton">Purchase</button>
-<button id="logoutButton" onclick="runAsyncWork('logout', {'key1':'value1'})">Logout</button>
-<img src="https://miro.medium.com/max/882/1*9EBHIOzhE1XfMYoKz1JcsQ.gif" />
+<div class="progress">
+    <div class="indeterminate"></div>
+</div>
+<a class="waves-effect waves-light btn" onclick="runAsyncWork('login', {'key1':'value1'})" >
+    <i class="material-icons left">login</i>로그인
+</a>
+<a class="waves-effect waves-light btn">
+    <i class="material-icons left">paid</i>로또구매
+</a>
+<a class="waves-effect waves-light btn" onclick="runAsyncWork('logout', {'key1':'value1'})" >
+    <i class="material-icons left">logout</i>로그아웃
+</a>
 </body>
 </html>
